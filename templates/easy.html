@@ -1,0 +1,43 @@
+{%extends "base.html"%}
+
+{%block content%}
+<h1>EASY MODE</h1>
+
+
+<div class="form_container">
+<form action="/play/easy" method="post" class="player_form">
+
+    <label for="player_name">Enter your name:</label>
+    <input type="text" id="player_name" name="player_name">
+
+    <label for="player_choice"></label>
+        <select name="player_choice" id="player_choice">
+            <option value="rock">Rock</option>
+            <option value="paper">Paper</option>
+            <option value="scissors">Scissors</option>
+        </select>
+
+    <input type="submit" value="Choose" class="submit_button">
+</form>
+</div>
+
+
+{% if winner == "You are the winner!":%}
+
+<h2>{{player_name + " is the Winner!"}}</h2>
+
+{% elif winner == "Computer is the winner!":%}
+
+<h2>Computer is the Winner!</h2>
+<p>{{"Computer Chose: " + computer_choice}}</p>
+
+{% elif winner == "Tie Match!":%}
+
+<h2>Tie!</h2>
+
+{% endif %}
+
+
+
+
+{%endblock%}
